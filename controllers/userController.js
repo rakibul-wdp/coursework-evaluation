@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
   const { username, password } = req.body;
+  console.log(req.body);
 
   User.findOne({ username: username }).then((user) => {
     if (user) {
