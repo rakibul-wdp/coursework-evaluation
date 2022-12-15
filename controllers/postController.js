@@ -75,10 +75,29 @@ const likePost = (req, res) => {
   });
 };
 
+const commentPost = (req, res) => {
+  const { id } = req.params;
+  const { comment } = req.body;
+
+  Post.findById(id).then((post) => {
+    if (!post) {
+      return res.json('Post does not exist');
+    } else {
+      Post.updateOne({ id: id }, { comment: [...post.comment, comment] }).then(
+        (result) => {
+          console.log(result);
+          return res.json('Comment added successfully');
+        }
+      );
+    }
+  });
+};
+
 module.exports = {
   createPost,
   getPosts,
   updatePost,
   deletePost,
-  likePost
+  likePost,
+  commentPost
 };
