@@ -11,5 +11,6 @@ route.post('/forgetPassword', userController.forgetPassword);
 // post related route
 route.post('/posts', postController.createPost);
 route.get('/posts', postController.getPosts);
+route.put('/posts/:id', postController.updatePost);
 
 module.exports = route;

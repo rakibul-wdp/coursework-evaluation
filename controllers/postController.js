@@ -18,7 +18,30 @@ const getPosts = (req, res) => {
   });
 };
 
+const updatePost = (req, res) => {
+  const { id } = req.params;
+  const { title, content } = req.body;
+
+  if (title && content && id) {
+    Post.findById(id).then((post) => {
+      if (!post) {
+        return res.json('Post with title does not exists');
+      } else {
+        Post.updateOne({ _id: id }, { title: title, content: content }).then(
+          (data) => {
+            console.log(data);
+            return res.json('Post updated successfully');
+          }
+        );
+      }
+    });
+  } else {
+    return res.json('Enter id, title, and content');
+  }
+};
+
 module.exports = {
   createPost,
-  getPosts
+  getPosts,
+  updatePost
 }
