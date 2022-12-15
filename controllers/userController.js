@@ -39,7 +39,29 @@ const loginUser = (req, res) => {
   });
 };
 
+const forgetPassword = (req, res) => {
+  const { username, password } = req.body;
+
+  User.findOne({ username: username }).then((user) => {
+    if (!user) {
+      return res.json('Username does not exist');
+    } else {
+      bcrypt.hash(password, 10).then((result) => {
+        if (!result) {
+          return res.json('An error occurred');
+        } else {
+          User.updateOne({ username: username }, { password: result }).then(result => {
+            console.log(result);
+            return res.json('Password change successfully');
+          });
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   createUser,
-  loginUser
+  loginUser,
+  forgetPassword
 }
