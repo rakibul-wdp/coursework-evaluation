@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
 
   User.findOne({ username: username }).then((user) => {
     if (user) {
@@ -22,6 +21,25 @@ const createUser = (req, res) => {
   });
 };
 
+const loginUser = (req, res) => {
+  const { username, password } = req.body;
+
+  User.findOne({ username: username }).then((user) => {
+    if (!user) {
+      return res.json('Username and password wrong');
+    } else {
+      bcrypt.compare(password, user.password).then((match) => {
+        if (match) {
+          return res.json("Login successful");
+        } else {
+          return res.json('Login Error');
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
-  createUser
+  createUser,
+  loginUser
 }
