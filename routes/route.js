@@ -14,4 +14,6 @@ route.get('/posts', postController.getPosts);
 route.put('/posts/:id', postController.updatePost);
 route.delete('/posts/:id', postController.deletePost);
 
+route.get('/posts/like/:id', postController.likePost);
+
 module.exports = route;

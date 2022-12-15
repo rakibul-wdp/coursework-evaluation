@@ -58,9 +58,27 @@ const deletePost = (req, res) => {
   }
 };
 
+const likePost = (req, res) => {
+  const { id } = req.params;
+
+  Post.findById(id).then((post) => {
+    if (!post) {
+      return res.json('Post does not exist');
+    } else {
+      Post.updateOne({ id: id }, { like: post.like ? post.like + 1 : 1}).then(
+        (result) => {
+          console.log(result);
+          return res.json('Post liked');
+        }
+      );
+    }
+  });
+};
+
 module.exports = {
   createPost,
   getPosts,
   updatePost,
-  deletePost
+  deletePost,
+  likePost
 };
