@@ -40,8 +40,27 @@ const updatePost = (req, res) => {
   }
 };
 
+const deletePost = (req, res) => {
+  const { id } = req.params;
+  
+  if (!id) {
+    return res.json('Enter id of post to delete');
+  } else {
+    Post.deleteOne({ _id: id })
+      .then((data) => {
+        console.log(data);
+        return res.json('Post deleted successfully');
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.json('Enter in deletion');
+      });
+  }
+};
+
 module.exports = {
   createPost,
   getPosts,
-  updatePost
-}
+  updatePost,
+  deletePost
+};

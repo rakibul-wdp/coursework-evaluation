@@ -12,5 +12,6 @@ route.post('/forgetPassword', userController.forgetPassword);
 route.post('/posts', postController.createPost);
 route.get('/posts', postController.getPosts);
 route.put('/posts/:id', postController.updatePost);
+route.delete('/posts/:id', postController.deletePost);
 
 module.exports = route;
