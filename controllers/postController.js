@@ -12,6 +12,13 @@ const createPost = (req, res) => {
   }
 };
 
+const getPosts = (req, res) => {
+  Post.find().then((post) => {
+    return res.json({ posts: post });
+  });
+};
+
 module.exports = {
-  createPost
+  createPost,
+  getPosts
 }
