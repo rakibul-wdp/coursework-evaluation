@@ -65,7 +65,7 @@ const likePost = (req, res) => {
     if (!post) {
       return res.json('Post does not exist');
     } else {
-      Post.updateOne({ id: id }, { like: post.like ? post.like + 1 : 1}).then(
+      Post.updateOne({ _id: id }, { like: post.like ? post.like + 1 : 1}).then(
         (result) => {
           console.log(result);
           return res.json('Post liked');
