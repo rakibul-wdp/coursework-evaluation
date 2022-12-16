@@ -3,7 +3,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 
 const createUser = (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   User.findOne({ username: username }).then((user) => {
     if (user) {
@@ -13,7 +13,7 @@ const createUser = (req, res) => {
         if (!result) {
           return res.json('An error occurred');
         }
-        user = new User({ username: username, password: result });
+        user = new User({ username: username, email: email, password: result });
         user.save();
         return res.json('User created successfully');
       });
