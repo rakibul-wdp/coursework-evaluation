@@ -83,7 +83,7 @@ const commentPost = (req, res) => {
     if (!post) {
       return res.json('Post does not exist');
     } else {
-      Post.updateOne({ id: id }, { comment: [...post.comment, comment] }).then(
+      Post.updateOne({ _id: id }, { comment: [...post.comment, comment] }).then(
         (result) => {
           console.log(result);
           return res.json('Comment added successfully');
