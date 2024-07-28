@@ -13,11 +13,12 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { registerUserAction } from "@/app/data/actions/auth-actions";
 
 export function SignupForm() {
   return (
     <div className="w-full max-w-md">
-      <form>
+      <form action={registerUserAction}>
         <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold">Sign Up</CardTitle>
