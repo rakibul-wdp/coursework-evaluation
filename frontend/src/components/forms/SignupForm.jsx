@@ -85,7 +85,7 @@ export function SignupForm() {
         </Card>
         <div className="mt-4 text-center text-sm">
           Have an account?
-          <Link className="underline ml-2" href="signin">
+          <Link className="underline ml-2" href="/">
             Sing In
           </Link>
         </div>
