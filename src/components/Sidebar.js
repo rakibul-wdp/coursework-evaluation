@@ -1,6 +1,8 @@
 import { links } from "@/lib/globalConstants";
 import NavItem from "./NavItem";
 import SvgLogo from "../../public/icons/SvgLogo";
+import Image from "next/image";
+import leftSideBottomImg from "../../public/icons/TEEN-SET-1-A.png";
 
 const Sidebar = () => {
   return (
@@ -31,9 +33,10 @@ const Sidebar = () => {
             className="flex  w-full items-center gap-2.5  outline-none"
           >
             <span className="relative flex shrink-0 overflow-hidden rounded-full size-8">
-              <img
+              <Image
                 className="aspect-square size-full"
-                src="https://zupay.blob.core.windows.net/zpfiles//profile/pp/pp_teen_female_7.png"
+                src={leftSideBottomImg}
+                alt=""
               />
             </span>
           </button>
