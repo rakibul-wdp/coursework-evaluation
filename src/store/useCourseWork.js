@@ -12,7 +12,7 @@ export const useCourseworkStore = create()(
       },
     }),
     {
-      name: "coursework-storage", // key for local storage
+      name: "coursework-storage",
     }
   )
 );

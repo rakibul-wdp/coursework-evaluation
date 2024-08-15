@@ -1,7 +1,14 @@
+import { EvaluationData, courseTypeOptions } from "@/lib/globalConstants";
+import { useCourseworkStore } from "@/store/useCourseWork";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { ScrollArea } from "../ui/scroll-area";
 import { v4 as uuidv4 } from "uuid";
+import SvgCrossIcon from "../../../public/icons/SvgCrossIcon";
+import SvgEvaluationIcon from "../../../public/icons/SvgEvaluationIcon";
+import SvgFileIcon from "../../../public/icons/SvgFileIcon";
+import { ScrollArea } from "../ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -10,12 +17,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { EvaluationData, courseTypeOptions } from "@/lib/globalConstants";
-import { useCourseworkStore } from "@/store/useCourseWork";
-import { useRouter } from "next/navigation";
-import SvgEvaluationIcon from "../../../public/icons/SvgEvaluationIcon";
-import SvgFileIcon from "../../../public/icons/SvgFileIcon";
-import SvgCrossIcon from "../../../public/icons/SvgCrossIcon";
 import { useToast } from "../ui/use-toast";
 
 const CourseWorkForm = () => {
@@ -275,7 +276,7 @@ const CourseWorkForm = () => {
         </div>
       </div>
       <div class="hidden justify-center md:min-w-[250px] lg:flex lg:min-w-[290px]">
-        <img
+        <Image
           alt="eveluation image"
           fetchpriority="high"
           width="390"

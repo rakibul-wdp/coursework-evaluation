@@ -1,7 +1,8 @@
-import React, { useMemo } from "react";
 import { transitionClass } from "@/lib/globalConstants";
 import { getRandomGradient } from "@/lib/utils";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 const CourseCard = ({ details, isExample }) => {
   const router = useRouter();
@@ -91,7 +92,7 @@ const CourseCard = ({ details, isExample }) => {
               key={index}
               className="flex items-center gap-[3px] rounded-full bg-white p-[2px] pr-2 group-hover:scale-110"
             >
-              <img
+              <Image
                 alt="image"
                 loading="lazy"
                 src={`${info.imgSrc}`}

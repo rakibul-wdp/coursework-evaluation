@@ -15,7 +15,7 @@ export const useFileStore = create()(
         })),
     }),
     {
-      name: "file-storage", // key for local storage
+      name: "file-storage",
     }
   )
 );
