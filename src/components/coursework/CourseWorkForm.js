@@ -1,6 +1,5 @@
 import { EvaluationData, courseTypeOptions } from "@/lib/globalConstants";
 import { useCourseworkStore } from "@/store/useCourseWork";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -276,7 +275,7 @@ const CourseWorkForm = () => {
         </div>
       </div>
       <div class="hidden justify-center md:min-w-[250px] lg:flex lg:min-w-[290px]">
-        <Image
+        <img
           alt="eveluation image"
           fetchpriority="high"
           width="390"
